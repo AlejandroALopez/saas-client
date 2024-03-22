@@ -1,15 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+
+// import App from './App';
+import SetGoal from './pages/planner/setGoal';
+import SetTime from './pages/planner/setTime';
+import PlanResult from './pages/planner/planResult';
+import Landing from './pages/landing';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />,
+  },
+  {
+    path: "/plan/goal",
+    element: <SetGoal />
+  },
+  {
+    path: "/plan/time",
+    element: <SetTime />
+  },
+  {
+    path: "/plan/result",
+    element: <PlanResult />
+  },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
