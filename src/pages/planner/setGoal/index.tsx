@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
+import { useAppDispatch, useAppSelector} from "../../../utils/hooks";
+import { updateGoal } from "../../../redux/actions/planActions";
+
 import { Link } from 'react-router-dom';
 import Header from '../../../components/header';
 import './style.css';
 
 function SetGoal() {
+  const dispatch = useAppDispatch();
+  const goal = useAppSelector(state => state.goal.goal);
 
   const placeholder_text = "Run 5 miles/day, eat healthier, etc.";
   const ideas = ["Run 5 miles/day", "Learn Python", "Analyze a scientific paper", "Plan a date",
     "Lose 10 pounds", "Get better sleep"];
 
-  const [goal, setGoal] = useState("");
+  const [selectedGoal, setSelectedGoal] = useState<string>(goal || "");
 
   const submitGoal = () => {
-    console.log("Goal chosen: ", goal);
+    console.log("Goal chosen: ", selectedGoal);
+    dispatch(updateGoal(selectedGoal));
   }
 
   return (
@@ -24,13 +30,13 @@ function SetGoal() {
           <input
             className="input-container"
             placeholder={placeholder_text}
-            value={goal}
-            onChange={e => setGoal(e.target.value)}
+            value={selectedGoal}
+            onChange={e => setSelectedGoal(e.target.value)}
           />
           <Link to="/plan/params">
             <button
-              className={`submit-button ${goal === "" && "disabled"}`}
-              disabled={goal === ""}
+              className={`submit-button ${selectedGoal === "" && "disabled"}`}
+              disabled={selectedGoal === ""}
               onClick={() => submitGoal()}
             >
               &gt;
@@ -41,7 +47,7 @@ function SetGoal() {
         <div className="ideas-container">
           {ideas.map((idea, index) => {
             return (
-              <button className="idea" key={index} onClick={() => setGoal(idea)}>
+              <button className="idea" key={index} onClick={() => setSelectedGoal(idea)}>
                 <p className="idea-text">{idea}</p>
               </button>
             )
