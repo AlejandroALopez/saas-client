@@ -1,11 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 function Header() {
   return (
     <div className="Header">
-      <p>Home</p>
-      <p>Create a Plan</p>
+      <Link to="/">
+        <button className="header-button">Home</button>
+      </Link>
+      <Link to="/plan/goal">
+        <button className="header-button">Create a Plan</button>
+      </Link>
     </div>
   );
 }

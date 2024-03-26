@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 
 // import App from './App';
 import SetGoal from './pages/planner/setGoal';
-import SetTime from './pages/planner/setTime';
+import SetParams from './pages/planner/setParams';
 import PlanResult from './pages/planner/planResult';
 import Landing from './pages/landing';
 
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
     element: <SetGoal />
   },
   {
-    path: "/plan/time",
-    element: <SetTime />
+    path: "/plan/params",
+    element: <SetParams />
   },
   {
     path: "/plan/result",

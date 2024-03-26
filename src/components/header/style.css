@@ -1,5 +1,27 @@
 .Header {
   margin: 0;
+  padding: 1em 2em;
   background-color: brown;
   text-align: center;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10em;
+}
+
+.header-button {
+  background: none;
+  border: none;
+
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+
+  transition: transform 0.2s ease;
+}
+
+.header-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }

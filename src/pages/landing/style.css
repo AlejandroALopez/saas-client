@@ -2,14 +2,12 @@
   margin: 0;
   padding: 4em;
   background-color: #f5f5f5;
-  /* text-align: center; */
 }
 
 .presentation-section-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* background-color: blue; */
 }
 
 .presentation-info-container {
@@ -28,7 +26,6 @@
 
 .button-container {
   margin-right: 2em;
-  /* background-color: red; */
   text-align: right;
 }
 
@@ -82,7 +79,6 @@
   flex-direction: column;
   align-items: center;
   width: 30%;
-  /* background-color: green; */
 }
 
 .feature-image {
