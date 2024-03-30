@@ -1,10 +1,8 @@
-import { UPDATE_GOAL, UPDATE_PARAMS } from "../actions/planActionTypes";
+import { UPDATE_GOAL, UPDATE_WEEKS } from "../actions/planActionTypes";
 
 const initialState = {
     goal: "",
-    params: {
-        numWeeks: 0
-    },
+    numWeeks: 0,
 };
 
 const goalReducer = (state = initialState, action: any) => {
@@ -14,10 +12,10 @@ const goalReducer = (state = initialState, action: any) => {
                 ...state,
                 goal: action.payload,
             };
-        case UPDATE_PARAMS:
+        case UPDATE_WEEKS:
             return {
                 ...state,
-                params: action.payload,
+                numWeeks: action.payload,
             }
         default:
             return state;

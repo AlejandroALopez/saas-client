@@ -33,7 +33,7 @@ function SetGoal() {
             value={selectedGoal}
             onChange={e => setSelectedGoal(e.target.value)}
           />
-          <Link to="/plan/params">
+          <Link to="/plan/weeks">
             <button
               className={`submit-button ${selectedGoal === "" && "disabled"}`}
               disabled={selectedGoal === ""}

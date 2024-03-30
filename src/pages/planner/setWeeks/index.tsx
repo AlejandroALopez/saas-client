@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
+import { updateWeeks, updatePlan } from "../../../redux/actions/planActions";
+import { testPlan1 } from '../../../utils/testData';
 
 import Header from '../../../components/header';
 import './style.css';
 
-function SetParams() {
+function SetWeeks() {
   const dispatch = useAppDispatch();
   const goal = useAppSelector(state => state.goal.goal);
 
@@ -15,7 +17,8 @@ function SetParams() {
   const [selectedTime, setSelectedTime] = useState<number>(0);
 
   const submitTime = () => {
-    // dispatch(updateGoal(selectedTime));
+    dispatch(updateWeeks(selectedTime));
+    dispatch(updatePlan(testPlan1));  // TEST: Replace this with an API call
   }
 
   // TODO: Goal --> add edit button (icon) next to it, to go back to goal page
@@ -23,9 +26,9 @@ function SetParams() {
   return (
     <div>
       <Header />
-      <div className="Params-Screen">
+      <div className="Weeks-Screen">
         <p className="goal">Goal: <span>{goal}</span></p>
-        <p className="params-title">{question}</p>
+        <p className="weeks-title">{question}</p>
         <div className="options-container">
           {options.map((opt: number) => {
             return (
@@ -52,4 +55,4 @@ function SetParams() {
   );
 }
 
-export default SetParams;
+export default SetWeeks;

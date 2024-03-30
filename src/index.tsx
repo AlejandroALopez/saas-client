@@ -11,7 +11,7 @@ import store from "./redux/store";
 
 // import App from './App';
 import SetGoal from './pages/planner/setGoal';
-import SetParams from './pages/planner/setParams';
+import SetWeeks from './pages/planner/setWeeks';
 import PlanResult from './pages/planner/planResult';
 import Landing from './pages/landing';
 
@@ -27,8 +27,8 @@ const router = createBrowserRouter([
     element: <SetGoal />
   },
   {
-    path: "/plan/params",
-    element: <SetParams />
+    path: "/plan/weeks",
+    element: <SetWeeks />
   },
   {
     path: "/plan/result",

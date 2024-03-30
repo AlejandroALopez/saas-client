@@ -1,0 +1,48 @@
+.Result-Screen {
+  margin: 0;
+  padding: 2em;
+  background-color: #f5f5f5;
+}
+
+.goal-text {
+  color: gray;
+  font-size: larger;
+
+  span {
+    color: brown;
+    font-weight: 700;
+  }
+}
+
+.weeks-text {
+  color: gray;
+  font-size: larger;
+
+  span {
+    color: brown;
+    font-weight: 700;
+  }
+}
+
+.weeks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin: 2em 0;
+}
+
+.week-item {
+  display: flex;
+  align-items: center;
+
+  width: 400px;
+  height: 50px;
+  padding: 1em 2em;
+  border-radius: 20px;
+
+  background-color: #bfbfbf;
+
+  p {
+    font-size: larger;
+  }
+}
