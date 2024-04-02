@@ -4,6 +4,10 @@ export interface Task {
     week: number,
 }
 
+export interface Week {
+    [k: string]: string[],
+}
+
 export interface Plan {
     goal: string,
     numWeeks: number,

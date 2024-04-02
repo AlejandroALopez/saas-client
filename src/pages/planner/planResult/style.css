@@ -4,36 +4,62 @@
   background-color: #f5f5f5;
 }
 
-.goal-text {
-  color: gray;
-  font-size: larger;
+.top-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  span {
-    color: brown;
-    font-weight: 700;
-  }
+.subtitle-text {
+  margin: 1em 0;
+  color: gray;
+  font-size:medium;
+  font-weight: 700;
+}
+
+.goal-text {
+  margin: 0;
+  font-size: xx-large;
+  font-weight: 700;
 }
 
 .weeks-text {
-  color: gray;
+  margin: 1em 0;
+  color: rgb(60, 60, 60);
   font-size: larger;
+  font-weight: 700;
+}
 
-  span {
-    color: brown;
-    font-weight: 700;
-  }
+.rows-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.demo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: 45%;
+}
+
+.placeholder {
+  height: 350px;
+  width: 500px;
+  background-color: gray;
 }
 
 .weeks-container {
+  width: 45%;
   display: flex;
   flex-direction: column;
   gap: 2em;
-  margin: 2em 0;
 }
 
 .week-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   width: 400px;
   height: 50px;
@@ -45,4 +71,67 @@
   p {
     font-size: larger;
   }
+}
+
+.expand-button {
+  border: none;
+  background: none;
+}
+
+.week-arrow {
+  transition: transform 0.2s ease;
+}
+
+.week-arrow:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.week-tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 430px;
+  padding: 1em 2em;
+}
+
+.task-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.task {
+  background-color: #E6E6E6;
+  width: 100%;
+  padding: 0 2em;
+  border-radius: 20px;
+
+  p {
+    color: black;
+    font-size: large;
+  }
+}
+
+.buttons-container {
+  margin: 2em 0;
+}
+
+.start-plan-button {
+  width: 150px;
+  padding: 1em;
+  border: none;
+  border-radius: 16px;
+
+  background-color: #4d4d4d;
+  color: white;
+  font-size: larger;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transition: transform 0.2s ease;
+}
+
+.start-plan-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
