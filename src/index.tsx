@@ -9,11 +9,11 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
-// import App from './App';
+import Landing from './pages/landing';
 import SetGoal from './pages/planner/setGoal';
 import SetWeeks from './pages/planner/setWeeks';
 import PlanResult from './pages/planner/planResult';
-import Landing from './pages/landing';
+import WeekPage from './pages/week';
 
 import './index.css';
 
@@ -34,6 +34,10 @@ const router = createBrowserRouter([
     path: "/plan/result",
     element: <PlanResult />
   },
+  {
+    path: "/week",
+    element: <WeekPage />
+  }
 ]);
 
 const root = ReactDOM.createRoot(

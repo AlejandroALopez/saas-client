@@ -11,6 +11,9 @@ function Header() {
       <Link to="/plan/goal">
         <button className="header-button">Create a Plan</button>
       </Link>
+      <Link to="/week">
+        <button className="header-button">My Week</button>
+      </Link>
     </div>
   );
 }
