@@ -1,0 +1,18 @@
+.Navigation {
+  margin: 0;
+  padding: 1em 2em;
+  width: 100px;
+  min-height: 100vh;
+  background-color: brown;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  
+  p {
+    font-size: larger;
+    font-weight: 600;
+    color: white;
+  }
+}

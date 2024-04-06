@@ -18,6 +18,4 @@ function Header() {
   );
 }
 
-// add some routes: https://reactrouter.com/en/main/route/route
-
 export default Header;

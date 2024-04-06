@@ -1,0 +1,25 @@
+.two-cols-container {
+    // background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+}
+
+.Week-Page {
+    background-color: lightblue;
+    width: 100%;
+    padding: 2em;
+}
+
+.kanban-container {
+    margin: 2em 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.kanban-column {
+    background-color: lightcoral;
+    width: 250px;
+    height: 500px;
+    text-align: center;
+}
