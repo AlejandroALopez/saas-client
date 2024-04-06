@@ -1,6 +1,16 @@
 import React from 'react';
 import Navigation from '../../components/navigation';
+import { ColumnProps } from '../../types/weekProps';
+import { testPlan1 } from '../../utils/testData';
 import './style.scss';
+
+const Column: React.FC<ColumnProps> = ({ title }) => {
+    return (
+        <div key={title} className="kanban-column">
+            <p>{title}</p>
+        </div>
+    )
+}
 
 function WeekPage() {
     const goal: string = "My Goal";
@@ -17,9 +27,7 @@ function WeekPage() {
                 </div>
                 <div className="kanban-container">
                     {columns.map((col) => (
-                        <div key={col} className="kanban-column">
-                            <p>{col}</p>
-                        </div>
+                        <Column title={col} />
                     ))}
                 </div>
             </div>

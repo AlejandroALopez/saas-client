@@ -1,18 +1,54 @@
 import React, { useState } from 'react';
 import { useAppSelector } from "../../../utils/hooks";
+import { WeekProps, TaskProps } from '../../../types/plannerProps';
 import Header from "../../../components/header";
+
 import { ReactComponent as ExpandDown } from "../../../assets/arrows/expandDown.svg";
 import { ReactComponent as ExpandUp } from "../../../assets/arrows/expandUp.svg";
 import { ReactComponent as BulletPoint } from "../../../assets/shapes/bulletPoint.svg";
 import { testWeeks } from "../../../utils/testData";
 import './style.css';
 
+const Week: React.FC<WeekProps> = ({ week, activeWeek, setActiveWeek }) => {
+  return (
+    <div>
+      <div key={week} className="week-item">
+        <p>Week {week}</p>
+        <button
+          className="expand-button"
+          onClick={() => (week === activeWeek) ? setActiveWeek(0) : setActiveWeek(week)}
+        >
+          {activeWeek === week ? <ExpandUp className="week-arrow" /> : <ExpandDown className="week-arrow" />}
+        </button>
+      </div>
+      {(week === activeWeek) && (
+        <div className="week-tasks-container">
+          {testWeeks[`Week ${week}`].map((task: string, index: number) => (
+            <Task key={index*100} title={task} />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+const Task: React.FC<TaskProps> = ({ key, title }) => {
+  return (
+    <div key={key} className="task-container">
+      <BulletPoint />
+      <div className="task">
+        <p>{title}</p>
+      </div>
+    </div>
+  );
+}
+
 function PlanResult() {
   const goal: string = useAppSelector(state => state.plan.goal);
   const numWeeks: number = useAppSelector(state => state.plan.numWeeks);
   const weeksArray: null[] = new Array(numWeeks).fill(null);
 
-  const [week, setWeek] = useState<number>(0);
+  const [activeWeek, setActiveWeek] = useState<number>(0);
 
   return (
     <div>
@@ -26,29 +62,7 @@ function PlanResult() {
         <div className="rows-container">
           <div className="weeks-container">
             {weeksArray.map((_: null, index: number) => (
-              <div>
-                <div key={index} className="week-item">
-                  <p>Week {index + 1}</p>
-                  <button
-                    className="expand-button"
-                    onClick={() => (index + 1 === week) ? setWeek(0) : setWeek(index + 1)}
-                  >
-                    {week === index + 1 ? <ExpandUp className="week-arrow" /> : <ExpandDown className="week-arrow" />}
-                  </button>
-                </div>
-                {(index + 1 === week) && (
-                  <div className="week-tasks-container">
-                    {testWeeks[`Week ${index + 1}`].map((task: string, index: number) => (
-                      <div key={index * 100} className="task-container">
-                        <BulletPoint />
-                        <div className="task">
-                          <p>{task}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+              <Week week={index + 1} activeWeek={activeWeek} setActiveWeek={setActiveWeek} />
             ))}
           </div>
           <div className="demo-container">

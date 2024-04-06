@@ -2,10 +2,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { updateWeeks, updatePlan } from "../../../redux/actions/planActions";
+import { WeekOptionProps } from '../../../types/plannerProps';
 import { testPlan1 } from '../../../utils/testData';
 
 import Header from '../../../components/header';
 import './style.css';
+
+const WeekOption: React.FC<WeekOptionProps> = ({ option, selectedTime, setSelectedTime }) => {
+  return (
+    <button key={option} className={`option ${selectedTime === option && "selected"}`} onClick={() => setSelectedTime(option)}>
+      <p>{option}</p>
+    </button>
+  )
+}
 
 function SetWeeks() {
   const dispatch = useAppDispatch();
@@ -30,13 +39,9 @@ function SetWeeks() {
         <p className="goal">Goal: <span>{goal}</span></p>
         <p className="weeks-title">{question}</p>
         <div className="options-container">
-          {options.map((opt: number) => {
-            return (
-              <button key={opt} className={`option ${selectedTime === opt && "selected"}`} onClick={() => setSelectedTime(opt)}>
-                <p>{opt}</p>
-              </button>
-            )
-          })}
+          {options.map((opt: number) => (
+            <WeekOption option={opt} selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
+          ))}
         </div>
         <div className="submit-button-container">
           <Link to="/plan/result">

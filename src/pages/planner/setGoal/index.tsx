@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
-import { useAppDispatch, useAppSelector} from "../../../utils/hooks";
+import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { updateGoal } from "../../../redux/actions/planActions";
+import { GoalIdeaProps } from '../../../types/plannerProps';
 import { Link } from 'react-router-dom';
 
 import Header from '../../../components/header';
 import './style.css';
+
+// Goal Suggestion Item
+const GoalIdea: React.FC<GoalIdeaProps> = ({ idea, index, setSelectedGoal }) => {
+  return (
+    <button key={index} className="idea" onClick={() => setSelectedGoal(idea)}>
+      <p className="idea-text">{idea}</p>
+    </button>
+  );
+}
 
 function SetGoal() {
   const dispatch = useAppDispatch();
@@ -45,13 +55,10 @@ function SetGoal() {
         </div>
         <p className="subtitle">Goal ideas</p>
         <div className="ideas-container">
-          {ideas.map((idea, index) => {
-            return (
-              <button key={index} className="idea" onClick={() => setSelectedGoal(idea)}>
-                <p className="idea-text">{idea}</p>
-              </button>
-            )
-          })}
+          {ideas.map((idea, index) => (
+            <GoalIdea idea={idea} index={index} setSelectedGoal={setSelectedGoal} />
+          )
+          )}
         </div>
       </div>
     </div>
