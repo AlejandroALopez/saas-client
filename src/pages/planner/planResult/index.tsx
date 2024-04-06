@@ -7,7 +7,7 @@ import { ReactComponent as ExpandDown } from "../../../assets/arrows/expandDown.
 import { ReactComponent as ExpandUp } from "../../../assets/arrows/expandUp.svg";
 import { ReactComponent as BulletPoint } from "../../../assets/shapes/bulletPoint.svg";
 import { testWeeks } from "../../../utils/testData";
-import './style.css';
+import './style.scss';
 
 const Week: React.FC<WeekProps> = ({ week, activeWeek, setActiveWeek }) => {
   return (

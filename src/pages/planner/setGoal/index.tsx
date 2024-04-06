@@ -5,7 +5,7 @@ import { GoalIdeaProps } from '../../../types/plannerProps';
 import { Link } from 'react-router-dom';
 
 import Header from '../../../components/header';
-import './style.css';
+import './style.scss';
 
 // Goal Suggestion Item
 const GoalIdea: React.FC<GoalIdeaProps> = ({ idea, index, setSelectedGoal }) => {

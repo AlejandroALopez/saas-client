@@ -6,7 +6,7 @@ import { WeekOptionProps } from '../../../types/plannerProps';
 import { testPlan1 } from '../../../utils/testData';
 
 import Header from '../../../components/header';
-import './style.css';
+import './style.scss';
 
 const WeekOption: React.FC<WeekOptionProps> = ({ option, selectedTime, setSelectedTime }) => {
   return (
