@@ -1,25 +1,79 @@
 .two-cols-container {
-    // background-color: lightblue;
-    display: flex;
-    flex-direction: row;
+  // background-color: lightblue;
+  display: flex;
+  flex-direction: row;
 }
 
 .Week-Page {
-    background-color: lightblue;
-    width: 100%;
-    padding: 2em;
+  background-color: lightblue;
+  width: 100%;
+  padding: 2em;
 }
 
 .kanban-container {
-    margin: 2em 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  margin: 2em 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .kanban-column {
-    background-color: lightcoral;
-    width: 250px;
-    height: 500px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  background-color: lightcoral;
+  width: 16rem;
+  height: 32rem;
+  text-align: center;
 }
+
+.col-top-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+}
+
+.col-card-container {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(38 38 38);
+
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.col-active {
+    background-color: rgba(38 38 38);
+    opacity: 50%;
+}
+
+.card {
+    background-color: blue;
+    padding: 0.2em;
+    cursor: grab;
+}
+
+.card:active {
+    cursor: grabbing;
+}
+
+.card-title {
+    color: white;
+}
+
+.drop-indicator {
+    margin: 0.125rem 0;
+    height: 0.125rem;
+    width: 100%;
+    background-color: rgb(167 139 250);
+    opacity: 0;
+}
+
+// .drop-active {
+//     opacity: 1;
+// }

@@ -1,7 +1,9 @@
 export interface Task {
+    id: string,
     title: string,
     description: string,
     week: number,
+    status: string, // TODO: Switch to enum later
 }
 
 export interface Week {
